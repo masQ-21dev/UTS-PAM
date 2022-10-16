@@ -28,8 +28,8 @@ const Home = () => {
       title: task,
       ditail: ditail,
     });
-    setDitail(null);
-    setTask(null);
+    setDitail("");
+    setTask("");
     console.log(dataDinamis);
   };
 
