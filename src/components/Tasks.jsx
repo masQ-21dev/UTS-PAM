@@ -19,20 +19,7 @@ const Tasks = (props) => {
         ></View>
         <Text style={{ maxWidth: 80 }}>{props.text}</Text>
       </View>
-      <ComplateTask key={props.index} />
-
-      {/* <TouchableOpacity
-        onPress={() => props.compalte}
-        style={{
-          width: 25,
-          height: 25,
-          borderColor: "#55BCF6",
-          borderWidth: 2,
-          borderRadius: 5,
-        }}
-      >
-        <Text className="font-bold text-center">X</Text>
-      </TouchableOpacity> */}
+      <ComplateTask key={props.key} />
     </View>
   );
 };

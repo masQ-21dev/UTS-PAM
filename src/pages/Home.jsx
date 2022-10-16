@@ -9,13 +9,14 @@ import {
   ScrollView,
   Button,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { data } from "../database/data";
 
 import Tasks from "../components/Tasks";
-import InputTask from "../components/InputTask";
 
 const Home = () => {
+  const navigation = useNavigation();
   let dataDinamis = data;
 
   const [task, setTask] = useState("");
@@ -34,10 +35,6 @@ const Home = () => {
 
   return (
     <View className="flex-1">
-      {/* <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        keyboardShouldPersistTaps="handled"
-      > */}
       <View className="mx-9 pt-5 pb-3">
         <Text className="text-lg font-bold">your Tasks</Text>
         <View className="mt-10">
@@ -51,7 +48,9 @@ const Home = () => {
               console.log(index);
               {
                 return (
-                  <TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => navigation.navigate("Detail", { item })}
+                  >
                     <Tasks text={item.title} key={index} />
                   </TouchableOpacity>
                 );
@@ -61,33 +60,25 @@ const Home = () => {
         </View>
       </View>
 
-      {/* <View>
-          <InputTask Data={dataDinamis} />
-        </View> */}
-
-      {/* <View>
-          <TextInput
-            placeholder={"add yout taks"}
-            value={task}
-            onChangeText={(text) => setTask(text)}
-          />
-          <TouchableOpacity onPress={() => handleAddTask()}>
-            <Text>tambah</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => printTask()}>
-            <Text>print</Text>
-          </TouchableOpacity>
-        </View> */}
       <KeyboardAvoidingView
         className="flex-1 justify-center items-center  bg-red-300 rounded-t-xl"
-        style={{ height: 650 }}
+        style={{
+          height: 650,
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 4.5,
+          elevation: 5,
+        }}
       >
         <View className="w-full justify-center  bg-red-300 rounded-t-xl">
           <ScrollView>
             <View className="justify-around items-center w-full">
               <View className="w-full px-5">
-                <Text className="font-bold text-xl">Judul :</Text>
+                <Text className="font-bold text-xl">Judul</Text>
               </View>
               <TextInput
                 className="px-3 py-3 rounded-2xl w-11/12 text-lg font-bold"
@@ -96,10 +87,9 @@ const Home = () => {
                 onChangeText={(text) => setTask(text)}
               />
               <View className=" mt-5 w-full px-5">
-                <Text className="font-bold text-xl">Ditail :</Text>
+                <Text className="font-bold text-xl">Detail </Text>
               </View>
               <TextInput
-                multiline={true}
                 numberOfLines={4}
                 className="px-3 py-3 rounded-2xl w-11/12 text-lg"
                 style={{ backgroundColor: "#fff", borderColor: "#C0C0C0" }}
@@ -108,7 +98,7 @@ const Home = () => {
               />
             </View>
             <TouchableOpacity
-              className="px-2 py-4 my-7 rounded-2xl  mx-5 w-7/12"
+              className="px-2 py-4 my-7 rounded-2xl  mx-auto w-7/12 "
               style={{ backgroundColor: "#FF7461" }}
               onPress={() => addTask()}
             >
