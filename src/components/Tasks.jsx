@@ -4,6 +4,7 @@ import { View, Text, Touchable, TouchableOpacity } from "react-native";
 import ComplateTask from "./ComplateTask";
 
 const Tasks = (props) => {
+  console.log(props.index);
   return (
     <View className="bg-white rounded-xl flex-row items-center justify-between p-3 mb-5">
       <View className="flex-row items-center flex-wrap">
@@ -19,7 +20,7 @@ const Tasks = (props) => {
         ></View>
         <Text style={{ maxWidth: 80 }}>{props.text}</Text>
       </View>
-      <ComplateTask key={props.key} />
+      <ComplateTask index={props.index} dataBase={props.dataBase} />
     </View>
   );
 };

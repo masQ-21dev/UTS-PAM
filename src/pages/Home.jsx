@@ -39,7 +39,7 @@ const Home = () => {
         <Text className="text-lg font-bold">your Tasks</Text>
         <View className="mt-10">
           <ScrollView
-            className="max-h-44"
+            className="h-44"
             contentContainerStyle={{ flexGrow: 1 }}
             keyboardShouldPersistTaps="handled"
           >
@@ -49,9 +49,22 @@ const Home = () => {
               {
                 return (
                   <TouchableOpacity
-                    onPress={() => navigation.navigate("Detail", { item })}
+                    onPress={() =>
+                      navigation.navigate("Detail", {
+                        base: {
+                          title: item.title,
+                          ditail: item.ditail,
+                          data: dataDinamis,
+                          index: index,
+                        },
+                      })
+                    }
                   >
-                    <Tasks text={item.title} key={index} />
+                    <Tasks
+                      text={item.title}
+                      index={index}
+                      dataBase={dataDinamis}
+                    />
                   </TouchableOpacity>
                 );
               }
@@ -90,6 +103,7 @@ const Home = () => {
                 <Text className="font-bold text-xl">Detail </Text>
               </View>
               <TextInput
+                multiline={true}
                 numberOfLines={4}
                 className="px-3 py-3 rounded-2xl w-11/12 text-lg"
                 style={{ backgroundColor: "#fff", borderColor: "#C0C0C0" }}
