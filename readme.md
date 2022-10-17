@@ -74,9 +74,14 @@ You can:
 - Press `i` to launch the app in ios simulator,
 - OR Scan the QR code on your ios device using your camera to open the app in [Expo Client](https://apps.apple.com/au/app/expo-client/id982107779).
 
+&nbsp;
+&nbsp;
+
 # Build to android app
 
-1. Run the following command below in project terminal root to build android apk
+**Step 1:**
+
+Run the following command below in project terminal root to build android apk
 
 ```
 yarn install
@@ -90,7 +95,9 @@ npm install
 
 &nbsp;
 
-2. Next is run the same function as git init inside expo
+**Step 2:**
+
+Next is run the same function as git init inside expo
 
 ```
 npx expo install expo-updates
@@ -98,7 +105,9 @@ npx expo install expo-updates
 
 &nbsp;
 
-3. Build inside expo
+**Step 3:**
+
+Build inside expo
 
 ```
 expo build:android
@@ -112,13 +121,14 @@ eas build -p android
 ```
 
 &nbsp;
+**Step 4:**
 
-4. Then wait and follow the instruction if it the first build, generate a new key and choose apk.Last if expo need login in terminal input same as your expo.dev account
+Then wait and follow the instruction if it the first build, generate a new key and choose apk.Last if expo need login in terminal input same as your expo.dev account
 &nbsp;
 
 ## Apk Link
 
-[FastLink-Expo](https://github.com/adislksn/FastLink-Expo/blob/main/FastLink-Expo-cfe54480efc2412fbb5e5d1f73bbee78-signed.apk)
+[mustDo](https://drive.google.com/drive/folders/1llCxe6pIWi6OG5vB-1jSa1KuZqK5m9NG?usp=sharing)
 
 ## Dependencies
 
